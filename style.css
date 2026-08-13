@@ -1,1 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Mitr:wght@300;400;500&display=swap');
 
+:root {
+  --plum: #3B1F33;
+  --plum-deep: #26141F;
+  --coral: #FF6F5E;
+  --coral-soft: #FFB199;
+  --peach: #FFE3CC;
+  --bg: #FFFBF5;
+  --panel: #FFFFFF;
+  --ink: #241A22;
+  --ink-soft: #7A6B75;
+  --border: #F0E3DC;
+  --r-lg: 28px;
+  --r-sm: 14px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Mitr', sans-serif;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+h1, h2, h3 { font-family: 'Chakra Petch', sans-serif; color: var(--plum-deep); margin: 0; }
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Floating pill navbar ---------- */
+.navwrap {
+  position: sticky;
+  top: 18px;
+  z-index: 60;
+  display: flex;
+  justify-content: center;
+  padding: 0 4vw;
+  margin-bottom: 10px;
+}
+
+.pillnav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--plum);
+  border-radius: 999px;
+  padding: 8px;
+  box-shadow: 0 14px 34px rgba(59,31,51,0.28);
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.pillnav .logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--coral);
+  color: #fff;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 4px;
+}
+
+.pillnav a {
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  color: rgba(255,255,255,0.68);
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+
+.pillnav a:hover { color: #fff; }
+
+.pillnav a[aria-current="page"] {
+  background: var(--coral);
+  color: #fff;
+  font-weight: 500;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 6vw 80px;
+}
+
+.page-header {
+  text-align: center;
+  margin: 40px 0 46px;
+}
+
+.eyebrow {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 3px;
+  color: var(--coral);
+  text-transform: uppercase;
+}
+
+.page-header h1 { font-size: 2.2rem; margin-top: 8px; }
+
+/* ---------- Hero (index) ---------- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 34px 0 50px;
+}
+
+.hero-photo-frame {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  padding: 8px;
+  background: linear-gradient(135deg, var(--coral), var(--peach));
+  margin-bottom: 26px;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--panel);
+  border: 4px solid #fff;
+}
+
+.hero h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); }
+.hero .accent { color: var(--coral); }
+
+.hero p.lede {
+  color: var(--ink-soft);
+  margin-top: 16px;
+  max-width: 48ch;
+}
+
+.hero-cta { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+.btn {
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 13px 26px;
+  border-radius: 999px;
+  border: 2px solid var(--plum);
+  transition: transform 0.15s, background 0.2s, color 0.2s;
+  display: inline-block;
+}
+.btn-solid { background: var(--plum); color: #fff; }
+.btn-solid:hover { background: var(--plum-deep); transform: translateY(-2px); }
+.btn-ghost { color: var(--plum); }
+.btn-ghost:hover { background: var(--plum); color: #fff; transform: translateY(-2px); }
+
+/* ---------- Quick links (index) ---------- */
+.quick-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.quick-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 24px 22px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.quick-card::before {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: var(--peach);
+  opacity: 0.6;
+}
+.quick-card:hover { transform: translateY(-5px); box-shadow: 0 16px 30px rgba(59,31,51,0.10); }
+.quick-card .qnum { font-family: 'Chakra Petch', sans-serif; color: var(--coral); font-weight: 700; position: relative; }
+.quick-card h3 { margin-top: 10px; font-size: 1.08rem; position: relative; }
+.quick-card p { color: var(--ink-soft); font-size: 0.88rem; margin: 8px 0 0; position: relative; }
+
+/* ---------- Panels ---------- */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 32px 34px;
+  margin-bottom: 22px;
+}
+
+/* ---------- Personal info ---------- */
+.about-block {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.about-photo {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 6px solid var(--peach);
+  object-fit: cover;
+  background: var(--bg);
+  flex-shrink: 0;
+  margin: 0 auto;
+}
+
+.stat-list {
+  flex: 1;
+  min-width: 260px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.stat-chip {
+  background: var(--bg);
+  border-radius: var(--r-sm);
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+}
+.stat-chip .k { font-size: 0.76rem; color: var(--ink-soft); }
+.stat-chip .v { font-family: 'Chakra Petch', sans-serif; font-size: 1rem; margin-top: 3px; color: var(--plum-deep); }
+
+/* ---------- Timeline (education) — horizontal steps ---------- */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.timeline li {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 18px 20px;
+  border-radius: var(--r-sm);
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+.timeline .dot {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--coral);
+  color: #fff;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.timeline .year {
+  font-family: 'Chakra Petch', sans-serif;
+  color: var(--coral);
+  font-size: 0.8rem;
+  display: block;
+}
+.timeline h3 { margin-top: 3px; font-size: 1.05rem; }
+.timeline p { color: var(--ink-soft); margin: 6px 0 0; font-size: 0.92rem; }
+
+/* ---------- Activities / works — staggered cards ---------- */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  padding-top: 6px;
+}
+
+.work-card {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 26px rgba(59,31,51,0.07);
+  transition: transform 0.25s;
+}
+.work-card:nth-child(even) { transform: translateY(14px); }
+.work-card:hover { transform: translateY(-4px); }
+
+.work-thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--peach);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  overflow: hidden;
+}
+.work-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+.work-body { padding: 16px 18px 20px; }
+.work-body h3 { font-size: 1rem; }
+.work-body p { color: var(--ink-soft); font-size: 0.86rem; margin: 6px 0 0; }
+.work-tag {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.7rem;
+  color: var(--plum);
+  background: var(--peach);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+/* ---------- Contact ---------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--bg);
+  border-radius: var(--r-sm);
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+}
+.contact-icon {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--plum);
+  color: var(--coral-soft);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.contact-item .label { font-size: 0.78rem; color: var(--ink-soft); }
+.contact-item .value { font-weight: 500; }
+
+.note {
+  background: var(--peach);
+  border: 1px dashed var(--coral);
+  border-radius: var(--r-sm);
+  padding: 14px 18px;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+footer {
+  text-align: center;
+  padding: 30px 6vw 50px;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 620px) {
+  .pillnav a { padding: 8px 12px; font-size: 0.8rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 2px;
+}
